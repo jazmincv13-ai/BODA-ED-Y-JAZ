@@ -371,20 +371,29 @@ main {
   text-align: center;
 }
 
-.music-player {
+.music-section {
+  padding: 4rem 0 2rem;
   text-align: center;
-  padding: 0 1.5rem 3rem;
 }
 
-#musicBtn {
+.music-card {
+  margin: 0 auto;
+  max-width: 38rem;
+  padding: 2.2rem 1.8rem;
+  background: rgba(255, 255, 255, 0.95);
   border: 1px solid var(--line);
-  padding: 0.9rem 1.4rem;
-  background: var(--paper);
-  color: var(--accent-2);
-  font-family: inherit;
-  font-weight: 600;
-  cursor: pointer;
+  border-radius: 1rem;
   box-shadow: var(--shadow);
+}
+
+.music-player {
+  margin-top: 1.5rem;
+}
+
+.background-music-iframe {
+  width: 100%;
+  min-height: 120px;
+  border: none;
 }
 
 footer {

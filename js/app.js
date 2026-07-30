@@ -31,17 +31,3 @@ function updateCountdown() {
 
 setInterval(updateCountdown, 1000);
 updateCountdown();
-
-musicBtn.addEventListener('click', async () => {
-  try {
-    if (music.paused) {
-      await music.play();
-      musicBtn.textContent = '🎵 Música en reproducción';
-    } else {
-      music.pause();
-      musicBtn.textContent = '🎵 Reproducir Música';
-    }
-  } catch (error) {
-    console.error('No se pudo reproducir la música', error);
-  }
-});
