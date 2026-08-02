@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#3f3a34">
   <title>Edward & Jazmin | Nuestra Boda</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
@@ -15,9 +16,20 @@
       <a href="#asistencia">Confirmar asistencia</a>
     </nav>
 
+    <!-- Decorative motif (simple inline SVG so no extra asset required) -->
     <div class="hero-content">
+      <svg width="140" height="40" viewBox="0 0 140 40" aria-hidden="true" style="display:block;margin:0 auto 1rem;opacity:0.9;">
+        <defs>
+          <linearGradient id="g" x1="0" x2="1">
+            <stop offset="0%" stop-color="#e9ddd0" />
+            <stop offset="100%" stop-color="#d9cbbd" />
+          </linearGradient>
+        </defs>
+        <text x="50%" y="60%" dominant-baseline="middle" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-size="22" fill="url(#g)">✦</text>
+      </svg>
+
       <p class="eyebrow">Nos casamos</p>
-      <h1>Edward &amp; Jazmin</h1>
+      <h1><span class="name">Edward</span> <span class="amp">&amp;</span> <span class="name">Jazmin</span></h1>
       <p class="date">27 de diciembre de 2026 · 1:00 PM</p>
       <div class="hero-actions">
         <a href="#historia" class="btn">Nuestra historia</a>
@@ -154,7 +166,7 @@
     </section>
 
     <div class="music-player" aria-hidden="true">
-      <iframe class="background-music-iframe" src="https://www.youtube.com/embed/hNVqvkx8RD4?autoplay=1&loop=1&playlist=hNVqvkx8RD4&controls=0&rel=0&modestbranding=1&playsinline=1" title="Música de fondo" allow="autoplay; encrypted-media" loading="eager" style="position:absolute;width:1px;height:1px;left:-9999px;opacity:0;pointer-events:none;"></iframe>
+      <iframe class="background-music-iframe" src="https://www.youtube.com/embed/hNVqvkx8RD4?autoplay=1&loop=1&playlist=hNVqvkx8RD4&controls=0&rel=0&modestbranding=1&playsinline=1" title="Música de fondo" allow="autoplay; encrypted-media" frameborder="0" allowfullscreen></iframe>
     </div>
   </main>
 
