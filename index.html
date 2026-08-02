@@ -8,8 +8,116 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Decoración estilo ChungDoi: fondo degradado, textura sutil y motivos SVG dorados -->
+  <style>
+    /* Background + texture */
+    html,body{height:100%;}
+    body{
+      background: linear-gradient(180deg, #fbfaf8 0%, #f3eee8 45%, #efe8df 100%);
+      font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      color: #2b2b2b;
+      position:relative;
+      overflow-x:hidden;
+    }
+
+    /* SVG motif layer (golden floral/leaf pattern) */
+    .page-motif{
+      position:fixed;
+      inset:0;
+      width:100%;
+      height:100%;
+      pointer-events:none;
+      z-index:0;
+      opacity:0.12; /* suave */
+      mix-blend-mode:screen;
+    }
+
+    /* Ensure main content sits above motif */
+    header, main, footer{position:relative; z-index:1}
+
+    /* Accent line like foil */
+    .hero::after{
+      content:"";
+      position:absolute;
+      left:50%;
+      transform:translateX(-50%);
+      bottom:-18px;
+      width:220px;
+      height:6px;
+      border-radius:6px;
+      background: linear-gradient(90deg, #d6b56c, #f0e6cf 60%);
+      box-shadow:0 2px 6px rgba(214,181,108,0.12);
+      opacity:0.95;
+    }
+
+    /* Slight vignette to mimic invitation card depth */
+    .hero{box-shadow:inset 0 -40px 80px rgba(0,0,0,0.03)}
+
+    /* Small ornamental corner for cards */
+    .media-card, .text-card, .rsvp-card, .gifts-card, .itinerary-card{position:relative}
+    .media-card::before, .text-card::before{
+      content:'';
+      position:absolute;
+      top:-12px; right:-12px;
+      width:56px; height:56px;
+      background: radial-gradient(circle at 30% 30%, rgba(214,181,108,0.18), rgba(214,181,108,0.06) 40%, transparent 60%);
+      transform:rotate(18deg);
+      border-radius:8px;
+      pointer-events:none;
+    }
+
+    /* Gallery images slight frame */
+    .gallery-grid img{border-radius:8px; box-shadow: 0 6px 18px rgba(22,18,10,0.06); border: 1px solid rgba(0,0,0,0.03)}
+
+    /* Buttons with subtle gold outline option */
+    .btn.btn-dark{border:1px solid rgba(214,181,108,0.22)}
+
+    @media (max-width:800px){
+      .page-motif{opacity:0.08}
+    }
+  </style>
 </head>
 <body>
+  <!-- Decorative SVG layer: repeating floral/leaf motifs and a central emblem -->
+  <svg class="page-motif" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <linearGradient id="goldGrad" x1="0" x2="1">
+        <stop offset="0%" stop-color="#d6b56c" />
+        <stop offset="100%" stop-color="#f3e9c8" />
+      </linearGradient>
+      <g id="leaf">
+        <path d="M2 18 C10 4, 42 2, 56 12 C48 20,12 28,2 18 Z" fill="url(#goldGrad)" opacity="0.95" />
+      </g>
+      <g id="floral">
+        <circle cx="20" cy="20" r="6" fill="#efe3c9" opacity="0.9" />
+        <circle cx="34" cy="14" r="3" fill="#d6b56c" />
+        <path d="M10 28 C18 36, 38 36, 46 28" stroke="#e7d9b6" stroke-width="2" fill="none" opacity="0.9" />
+      </g>
+      <symbol id="emblem" viewBox="0 0 120 120">
+        <circle cx="60" cy="60" r="58" fill="none" stroke="url(#goldGrad)" stroke-width="3" opacity="0.95" />
+        <text x="50%" y="52%" dominant-baseline="middle" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-size="36" fill="#d6b56c">✦</text>
+      </symbol>
+    </defs>
+
+    <!-- tiled motifs top-left and bottom-right -->
+    <use href="#leaf" x="40" y="40" transform="scale(3) rotate(-10)" />
+    <use href="#leaf" x="280" y="60" transform="scale(2.6) rotate(12)" />
+    <use href="#leaf" x="960" y="620" transform="scale(3.2) rotate(6)" />
+    <use href="#floral" x="760" y="120" transform="scale(6) rotate(-6)" />
+
+    <!-- soft repeated pattern (low opacity) -->
+    <g opacity="0.06" fill="#000">
+      <use href="#leaf" x="120" y="260" transform="scale(8) rotate(20)" />
+      <use href="#leaf" x="420" y="80" transform="scale(6) rotate(-40)" />
+      <use href="#leaf" x="840" y="220" transform="scale(7) rotate(14)" />
+      <use href="#leaf" x="980" y="40" transform="scale(4) rotate(4)" />
+    </g>
+
+    <!-- central emblem at top center -->
+    <use href="#emblem" x="540" y="28" width="120" height="120" opacity="0.9" />
+  </svg>
+
   <header class="hero">
     <nav class="top-nav">
       <span>Edward & Jazmin</span>
@@ -18,7 +126,7 @@
 
     <!-- Decorative motif (simple inline SVG so no extra asset required) -->
     <div class="hero-content">
-      <svg width="140" height="40" viewBox="0 0 140 40" aria-hidden="true" style="display:block;margin:0 auto 1rem;opacity:0.9;">
+      <svg width="140" height="40" viewBox="0 0 140 40" aria-hidden="true" style="display:block;margin:0 auto 1rem;opacity:0.95;">
         <defs>
           <linearGradient id="g" x1="0" x2="1">
             <stop offset="0%" stop-color="#e9ddd0" />
@@ -166,7 +274,7 @@
     </section>
 
     <div class="music-player" aria-hidden="true">
-      <iframe class="background-music-iframe" src="https://www.youtube.com/embed/hNVqvkx8RD4?autoplay=1&loop=1&playlist=hNVqvkx8RD4&controls=0&rel=0&modestbranding=1&playsinline=1" title="Música de fondo" allow="autoplay; encrypted-media" frameborder="0" allowfullscreen></iframe>
+      <iframe class="background-music-iframe" src="https://www.youtube.com/embed/hNVqvkx8RD4?autoplay=1&loop=1&playlist=hNVqvkx8RD4&controls=0&rel=0&modestbranding=1&playsinline=1" title="Música de fondo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="width:1px;min-width:100%;height:60px;opacity:0.02"></iframe>
     </div>
   </main>
 
